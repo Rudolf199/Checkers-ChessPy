@@ -1,6 +1,9 @@
+#!usr/bin/env python3
 import pygame
 from CHECKERS.constants import WIDTH, HEIGHT, RED, WHITE, SQUARE_SIZE
 from CHECKERS.gameplay import Game
+from minimax.checkerbot import minimax
+
 #import os
 #os.environ["SDL_VIDEODRIVER"] = "dummy"
 FPS = 60
@@ -22,9 +25,16 @@ def main():
 
     while run:
         clock.tick(FPS)
+
+        if game.turn == WHITE:
+            value, new_board = minimax(game.get_board(), 4, WHITE, game)
+            game.ai_move(new_board)
+
+
         if game.winner() == RED:
             for i in range(50):
                 print(" RED won!!! ")
+            run = False
         elif game.winner() == WHITE:
             for i in range(100):
                 print(" WHITE won!!! ")

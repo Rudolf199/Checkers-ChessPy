@@ -28,3 +28,4 @@ then type
 that will create the requirements.txt
 #.......
 or just open checkers directory in pycharm ide and run the checkers.py
+export PYTHONPATH=export PYTHONPATH=/home/rudolf:/usr/lib/python38.zip:/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/home/rudolf/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages

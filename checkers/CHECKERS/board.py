@@ -2,12 +2,12 @@ import pygame
 from .constants import BLACK, COLS, ROWS, RED, SQUARE_SIZE, WHITE
 from .pieces import Piece
 class Board:
-    __instance = None
-    def __new__(cls, *args, **kwargs):
-        if cls.__instance is None:
-            cls.__instance = super(Board, cls).__new__(cls)
-        print(cls)
-        return cls.__instance
+    #__instance = None
+    #def __new__(cls, *args, **kwargs):
+    #    if cls.__instance is None:
+    #        cls.__instance = super(Board, cls).__new__(cls)
+    #    print(cls)
+    #    return cls.__instance
     def __init__(self):
         #атрибуты
         self.board = [] # список шашек
@@ -21,6 +21,19 @@ class Board:
         for row in range(ROWS):
             for col in range(row % 2, COLS, 2):
                 pygame.draw.rect(win, RED, (row*SQUARE_SIZE, col*SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE)) #рисуем в красное квадраты в виндоу, в конце координатные аргументы rect
+
+    def evaluate(self):
+        return self.white_left - self.red_left + (self.white_kings * 0.5 - self.red_kings * 0.5)
+
+
+    def get_all_pieces(self, color):
+        pieces = []
+        for row in self.board:
+            for piece in row:
+                if piece != 0 and piece.color == color:
+                    pieces.append(piece)
+        return pieces
+
     def move(self, piece, row, col):
         # свапаем координаты, нынешнего и того места куда хотим двинуть
         self.board[piece.row][piece.col], self.board[row][col] = self.board[row][col], self.board[piece.row][piece.col]
