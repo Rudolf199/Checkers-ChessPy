@@ -24,7 +24,7 @@
 🟢step1) git clone repository this repository
 ```
 
-####[Here is the link for repository](https://github.com/Rudolf199/project1.git)
+🔗[Here is the link for repository](https://github.com/Rudolf199/project1.git)
 
 ```
 1. From the repository, select the Clone button.
