@@ -1,6 +1,7 @@
 ---------
 
-<img height="120" src="../../../Downloads/♚🙾Python_Checkers_and_Chess.png" width="750"/>
+![Python.png](checkers/♚🙾Python.png)
+
 
 -----------
 
@@ -15,7 +16,7 @@
 
 ----
 
-*__What should i do to run the game?__*
+*__What should I do to run the game?__*
 ===========
 
 ----
@@ -23,7 +24,8 @@
 🟢step1) git clone repository this repository
 ```
 
-######[Here is the link for repository](https://github.com/Rudolf199/project1.git)
+####[Here is the link for repository](https://github.com/Rudolf199/project1.git)
+
 ```
 1. From the repository, select the Clone button.
 
@@ -38,7 +40,7 @@ If you are using the SSH protocol, ensure your public key is in Bitbucket and lo
 ```
 $ git clone https://username@bitbucket.org/teamsinspace/documentation-tests.git
 ```
-![](../clone.png)
+![clone.png](checkers/clone.png)
 
 ###**~~Clone over SSH~~**
 
@@ -59,7 +61,7 @@ $ git clone https://username@bitbucket.org/teamsinspace/documentation-tests.git
 ```
 🟢step 3) now to build the project you need to insall pygame module
 ```
-![](../../../Downloads/pygame.png)
+![pygame.png](checkers/pygame.png)
 
 --------
 ##
@@ -67,7 +69,7 @@ $ git clone https://username@bitbucket.org/teamsinspace/documentation-tests.git
 🟢step 4) run chess/ checkers game
 ```
 
-<img src="../../../Downloads/run.png"/>
+![run.png](checkers/run.png)
 
 
 ------
