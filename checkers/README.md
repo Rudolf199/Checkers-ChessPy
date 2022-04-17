@@ -1,30 +1,80 @@
-#Weclome to Checkers
+---------
+
+<img height="120" src="../../../../Downloads/♚🙾Python_Checkers_and_Chess.png" width="750"/>
+
+-----------
+
+💬 Welcome to my first game project
+===
+
+✅ 🙾Here you can try to play checkers with a bot 
+
+❌ ♟ And also online chess (not ready yet!!)️
+
+#
 
 ----
-##What should i do to run the game?
+
+*__What should i do to run the game?__*
+===========
 
 ----
-###step 1) you should install python3 
-type this commands in terminal
-####$sudo apt-get update
-####$sudo apt-get install python3.8 python3-pip
-###step 2) now install pip command for python3
-type this commands in terminal
-####$sudo apt update
-####$sudo apt install python3-pip
-###step 3) now to build the project you need to insall pygame module
-The best way to install pygame is with the pip tool (which is what python uses to install packages). Note, this comes with python in recent versions. We use the --user flag to tell it to install into the home directory, rather than globally.
+```
+🟢step1) git clone repository this repository
+```
 
-type commands in terminals
-####$python3 -m pip install -U pygame --user
-To see if it works, run one of the included examples:
+######[Here is the link for repository](https://github.com/Rudolf199/project1.git)
+```
+1. From the repository, select the Clone button.
 
-####$python3 -m pygame.examples.aliens
-now to run the game do the following steps
+2. Copy the clone command (either the SSH format or the HTTPS).
+If you are using the SSH protocol, ensure your public key is in Bitbucket and loaded on the local system to which you are cloning.
 
-----open the checkers directory from tech0Rudolf
-then type
-####$pip freeze > requirements.txt
-that will create the requirements.txt
-#.......
-or just open checkers directory in pycharm ide and run the checkers.py
+3. From a terminal window, change to the local directory where you want to clone your repository.
+
+4. Paste the command you copied from Bitbucket, for example:
+```
+###**Clone over HTTPS**
+```
+$ git clone https://username@bitbucket.org/teamsinspace/documentation-tests.git
+```
+![](../../clone.png)
+
+###**~~Clone over SSH~~**
+
+###⛔ unavailable(no public ssh key)*
+
+#
+
+
+-------
+
+```
+🟢step 2) you should install python3 and pip3 command
+```
+![img_1.png](img_1.png)
+
+-------
+###
+```
+🟢step 3) now to build the project you need to insall pygame module
+```
+![](../../../../Downloads/pygame.png)
+
+--------
+##
+```
+🟢step 4) run chess/ checkers game
+```
+
+<img src="../../../../Downloads/run.png"/>
+
+
+------
+
+
+
+
+📱 Let me know if you are having problems
+
+![img_2.png](img_2.png) [here](https://t.me/Roudolf)

@@ -1,25 +1,26 @@
 import pygame
 from CHECKERS.constants import WIDTH, HEIGHT, RED, WHITE, SQUARE_SIZE
 from CHECKERS.gameplay import Game
-#import os
-#os.environ["SDL_VIDEODRIVER"] = "dummy"
+
+
 FPS = 60
-WIN = pygame.display.set_mode((WIDTH, HEIGHT)) # display
+WIN = pygame.display.set_mode((WIDTH, HEIGHT))  # display
 pygame.display.set_caption('Checkers')
 
 # чтобы двигать шашками мышкой
+
+
 def get_row_col_from_mouse(pos):
     x, y = pos
     row = y // SQUARE_SIZE
     col = x // SQUARE_SIZE
     return row, col
 
+
 def main():
     run = True
     clock = pygame.time.Clock()
     game = Game(WIN)
-
-
     while run:
         clock.tick(FPS)
         if game.winner() == RED:
@@ -33,8 +34,6 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-
-
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 row, col = get_row_col_from_mouse(pos)
@@ -43,5 +42,6 @@ def main():
         game.update()
 
     pygame.quit()
+
 
 main()
