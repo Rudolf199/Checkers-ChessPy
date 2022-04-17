@@ -1,6 +1,6 @@
 ---------
 
-<img height="120" src="../../../../Downloads/♚🙾Python_Checkers_and_Chess.png" width="750"/>
+<img height="120" src="../../../Downloads/♚🙾Python_Checkers_and_Chess.png" width="750"/>
 
 -----------
 
@@ -38,7 +38,7 @@ If you are using the SSH protocol, ensure your public key is in Bitbucket and lo
 ```
 $ git clone https://username@bitbucket.org/teamsinspace/documentation-tests.git
 ```
-![](../../clone.png)
+![](../clone.png)
 
 ###**~~Clone over SSH~~**
 
@@ -52,14 +52,14 @@ $ git clone https://username@bitbucket.org/teamsinspace/documentation-tests.git
 ```
 🟢step 2) you should install python3 and pip3 command
 ```
-![img_1.png](img_1.png)
+![img_1.png](checkers/img_1.png)
 
 -------
 ###
 ```
 🟢step 3) now to build the project you need to insall pygame module
 ```
-![](../../../../Downloads/pygame.png)
+![](../../../Downloads/pygame.png)
 
 --------
 ##
@@ -67,7 +67,7 @@ $ git clone https://username@bitbucket.org/teamsinspace/documentation-tests.git
 🟢step 4) run chess/ checkers game
 ```
 
-<img src="../../../../Downloads/run.png"/>
+<img src="../../../Downloads/run.png"/>
 
 
 ------
@@ -77,4 +77,4 @@ $ git clone https://username@bitbucket.org/teamsinspace/documentation-tests.git
 
 📱 Let me know if you are having problems
 
-![img_2.png](img_2.png) [here](https://t.me/Roudolf)
+![img_2.png](checkers/img_2.png) [here](https://t.me/Roudolf)
