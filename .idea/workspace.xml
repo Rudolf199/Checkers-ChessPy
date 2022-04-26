@@ -143,11 +143,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.Menu" />
+      <item itemvalue="Python.checkers" />
+      <item itemvalue="Python.chessMain (1)" />
       <item itemvalue="Python.chessboard (1)" />
       <item itemvalue="Python.chesspieces (1)" />
-      <item itemvalue="Python.chessMain (1)" />
-      <item itemvalue="Python.checkers" />
-      <item itemvalue="Python.Menu" />
     </list>
     <recent_temporary>
       <list>
