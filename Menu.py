@@ -1,10 +1,10 @@
 import pygame as pg
 import checkers
 import chess
-from chess.CHESS import chessMain
+# from CHESS import chessMain
 pg.init()
-color_light = (170,170,170)
-color_dark = (100,100,100)
+color_light = (170, 170, 170)
+color_dark = (100, 100, 100)
 class Window:
     res = (1080, 720)
 

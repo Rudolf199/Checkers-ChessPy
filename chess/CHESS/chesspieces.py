@@ -1,5 +1,5 @@
 import pygame
-from chessconstants import W, B, WHITE, RED, BLACK
+from chess.CHESS.chessconstants import W, B, WHITE, RED, BLACK
 
 
 class chessPiece:

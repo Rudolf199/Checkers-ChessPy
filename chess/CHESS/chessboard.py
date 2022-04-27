@@ -1,6 +1,6 @@
 import pygame
-from chesspieces import Bishop, King, Rook, Pawn, Queen, Knight
-from chessconstants import BLACK, WHITE
+from chess.CHESS.chesspieces import Bishop, King, Rook, Pawn, Queen, Knight
+from chess.CHESS.chessconstants import BLACK, WHITE
 import time
 
 
@@ -190,8 +190,8 @@ class chessBoard:
                 self.reset_selected()
 
         return changed # added just to check it is in move
-
     '''
+
     def check_mate(self, color):
         if self.is_checked(color):
                    king = None
@@ -208,7 +208,6 @@ class chessBoard:
                            if move in danger_moves:
                                danger_count += 1
                        return danger_count == len(valid_moves)
-
         return False
 
     def reset_selected(self):
@@ -238,7 +237,6 @@ class chessBoard:
                 if self.board[i][j] != 0:
                     if self.board[i][j].selected:
                         prev = (i, j)
-
         #if piece
         if self.board[row][col] == 0:
             moves = self.board[prev[0]][prev[1]].move_list
@@ -260,8 +258,8 @@ class chessBoard:
                 self.reset_selected()
                 if self.board[row][col].color == color:
                     self.board[row][col].selected = True
-
         return changed
+
     '''
     def move(self, start, end):  # beta test
         nBoard = self.board[:]
@@ -273,6 +271,7 @@ class chessBoard:
         nBoard[start[0]][start[1]] = 0
         self.board = nBoard
     '''
+
     def move(self, start, end, color):
         checkedBefore = self.is_checked(color)
         changed = True
@@ -302,5 +301,4 @@ class chessBoard:
             else:
                 self.storedTime2 += (time.time() - self.startTime)
             self.startTime = time.time()
-
         return changed

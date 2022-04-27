@@ -17,7 +17,7 @@ def get_row_col_from_mouse(pos):
     col = x // SQUARE_SIZE
     return row, col
 
-def main():
+def checkersgame():
     run = True
     clock = pygame.time.Clock()
     game = Game(WIN)
@@ -54,4 +54,4 @@ def main():
 
     pygame.quit()
 
-main()
+checkersgame()

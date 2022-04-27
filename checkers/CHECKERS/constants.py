@@ -1,4 +1,4 @@
-import pygame
+import pygame, os
 
 WIDTH, HEIGHT = 800, 800
 ROWS, COLS = 8, 8
@@ -12,5 +12,5 @@ BLUE = (0, 0, 255)
 GREY = (128,128,128)
 GREEN = (0, 255, 0)
 # грузим корону для дамки
-RCROWN = pygame.transform.scale(pygame.image.load('CHECKERS/crown.png'), (60, 70))
-UCROWN = pygame.transform.scale(pygame.image.load('CHECKERS/usa_gerb_PNG3.png'), (60, 70))
+RCROWN = pygame.transform.scale(pygame.image.load(os.path.join('checkers', 'CHECKERS', 'crown.png')), (60, 70))
+UCROWN = pygame.transform.scale(pygame.image.load(os.path.join("checkers", "CHECKERS", "usa_gerb_PNG3.png")), (60, 70))

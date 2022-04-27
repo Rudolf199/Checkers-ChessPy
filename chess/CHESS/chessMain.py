@@ -2,10 +2,10 @@
 """
 user input and display
 """
-from project1.chess.CHESS.chessconstants import WIDTH, HEIGHT, WHITE, Board, rect, BLACK, GREY
+from chess.CHESS.chessconstants import WIDTH, HEIGHT, WHITE, Board, rect, BLACK, GREY
 import pygame
-from chesspieces import chessPiece, Bishop
-from chessboard import chessBoard
+from chess.CHESS.chesspieces import chessPiece, Bishop
+from chess.CHESS.chessboard import chessBoard
 import time
 pygame.font.init()
 
@@ -13,7 +13,7 @@ turn = WHITE
 FPS = 10
 
 
-
+'''
 def menu_screen(win):
     #global play
     run = True
@@ -34,7 +34,7 @@ def menu_screen(win):
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 run = False
-    main()
+'''
 
 
 def redraw_gameWindow(win, play, p1, p2, color): # fix this with screenshot
@@ -98,7 +98,7 @@ def click(pos):
             return i, j
 
     return -1, -1
-def main():
+def chessgame():
     global play
     p1Time = 900
     p2Time = 900
@@ -158,10 +158,10 @@ def main():
                         turn  = WHITE #play.turn
                         #turn = WHITE
                         play.reset_selected()
-    menu_screen()
+
 win = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Chess')
-menu_screen(win)
+chessgame()
 
 
 
