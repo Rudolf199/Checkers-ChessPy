@@ -7,34 +7,13 @@ import pygame
 from chess.CHESS.chesspieces import chessPiece, Bishop
 from chess.CHESS.chessboard import chessBoard
 import time
-pygame.font.init()
+# from client import Network
+import pickle
 
+
+pygame.font.init()
 turn = WHITE
 FPS = 10
-
-
-'''
-def menu_screen(win):
-    #global play
-    run = True
-
-
-    while run:
-        win.fill(GREY)
-        font = pygame.font.SysFont("comicsans", 80)
-        title = font.render("Click to play Chess", 1, (0, 128, 0))
-        win.blit(title, (WIDTH / 2 - title.get_width() / 2, 200))
-        pygame.display.update()
-
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                run = False
-
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                run = False
-'''
 
 
 def redraw_gameWindow(win, play, p1, p2, color): # fix this with screenshot
@@ -45,18 +24,13 @@ def redraw_gameWindow(win, play, p1, p2, color): # fix this with screenshot
     formatTime2 = str(int(p2//60)) + ":" + str(int(p2%60))
     if int(p1%60) < 10:
         formatTime1 = formatTime1[:-1] + "0" + formatTime1[-1]
-
     if int(p2%60) < 10:
         formatTime2 = formatTime2[:-1] + "0" + formatTime2[-1]
-
-
     font = pygame.font.SysFont("comicsans", 30)
     txt = font.render(play.p1Name + "\'s Time: " + str(formatTime2), 1, WHITE)
     txt2 = font.render(play.p2Name + "\'s Time: " + str(formatTime1), 1, WHITE)
     win.blit(txt, (520, 10))
     win.blit(txt2, (520, 700))
-    #txt = font.render("Press q to Quit", 1, (255, 255, 255))
-    #win.blit(txt, (10, 20))
     pygame.display.update()
 
 
@@ -102,7 +76,6 @@ def chessgame():
     global play
     p1Time = 900
     p2Time = 900
-    #color = WHITE
     turn = WHITE
     count = 0
     play = chessBoard(8, 8)
@@ -110,7 +83,6 @@ def chessgame():
     clock = pygame.time.Clock()
     run = True
     startTime = time.time()
-
     while run:
         clock.tick(30)
         color = turn
@@ -122,31 +94,20 @@ def chessgame():
             p2Time -= (time.time() - startTime)
             if p2Time <= 0:
                 end_screen(win, "White Won!!")
-
-
         startTime = time.time()
         redraw_gameWindow(win, play, int(p1Time), int(p2Time), color)
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
                 quit()
                 pygame.quit()
-
-
-            #if event.type == pygame.KEYDOWN:
-            #    if event.key == pygame.K_q: # q pressed
-            #        quit()
-
-
             if event.type == pygame.MOUSEBUTTONDOWN:
-                #if color == turn:
+                # if color == turn:
                 pos = pygame.mouse.get_pos()
                 play.update_moves()
                 i, j = click(pos)
                 change = play.select(i, j, turn)
                 play.update_moves()
-                    #change = play.select(i, j, play.turn)
                 if change == True:
                     startTime = time.time()
                     count += 1

@@ -58,12 +58,14 @@ class chessPiece:
 
 class Bishop(chessPiece):
     img = 0
+
     def valid_moves(self, board):
         i = self.row
         j = self.col
 
         moves = []
-        # правый верхний
+
+        # TOP RIGHT
         djL = j + 1
         djR = j - 1
         for di in range(i - 1, -1, -1):
@@ -80,6 +82,38 @@ class Bishop(chessPiece):
                 break
 
             djL += 1
+
+        for di in range(i - 1, -1, -1):
+            if djR > -1:
+                p = board[di][djR]
+                if p == 0:
+                    moves.append((djR, di))
+                elif p.color != self.color:
+                    moves.append((djR, di))
+                    break
+                else:
+                    break
+            else:
+                break
+
+            djR -= 1
+
+        # TOP LEFT
+        djL = j + 1
+        djR = j - 1
+        for di in range(i + 1, 8):
+            if djL < 8:
+                p = board[di][djL]
+                if p == 0:
+                    moves.append((djL, di))
+                elif p.color != self.color:
+                    moves.append((djL, di))
+                    break
+                else:
+                    break
+            else:
+                break
+            djL += 1
         for di in range(i + 1, 8):
             if djR > -1:
                 p = board[di][djR]
@@ -93,7 +127,7 @@ class Bishop(chessPiece):
             else:
                 break
 
-            djR = -1
+            djR -= 1
 
         return moves
 
@@ -491,5 +525,4 @@ class Rook(chessPiece):
                 break
 
         return moves
-
 

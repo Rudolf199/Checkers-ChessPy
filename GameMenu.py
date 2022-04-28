@@ -1,7 +1,7 @@
 import pygame
 import subprocess
 from startbutton import StartButton
-
+import sys
 
 pygame.init()
 pygame.font.init()
@@ -38,8 +38,9 @@ def main():
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                # pygame.quit()
+                pygame.quit()
                 run = False
+                # sys.exit(0)
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x = pygame.mouse.get_pos()[0]
                 if x >= 300:
@@ -62,11 +63,14 @@ def main():
         clock.tick(60)
         if k == 1:
             subprocess.call(['python', 'checkers/checkers.py'])
+            pygame.quit()
             run = False
         elif k == 2:
             subprocess.call(['python', 'chess/CHESS/chessMain.py'])
+            pygame.quit()
             run = False
-    pygame.quit()
+    # pygame.quit()
+    # sys.exit(0)
 
 
 main()

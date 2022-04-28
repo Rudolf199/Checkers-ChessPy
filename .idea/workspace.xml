@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0395436a-5b2c-493f-b215-806f5eb2d7d3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/chess/CHESS/chessGame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameMenu.py" beforeDir="false" afterPath="$PROJECT_DIR$/GameMenu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/READ.md" beforeDir="false" afterPath="$PROJECT_DIR$/READ.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkers/CHECKERS/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/CHECKERS/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkers/checkers.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/checkers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chess/CHESS/chessMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess/CHESS/chessMain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chess/CHESS/chessboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess/CHESS/chessboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess/CHESS/chessconstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess/CHESS/chessconstants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chess/CHESS/chesspieces.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess/CHESS/chesspieces.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,6 +188,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/project1$chessconstants.coverage" NAME="chessconstants Coverage Results" MODIFIED="1649416456210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chess/CHESS" />
     <SUITE FILE_PATH="coverage/project1$checkers_.coverage" NAME="checkers  Coverage Results" MODIFIED="1647801247119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/checkers" />
@@ -199,7 +208,7 @@
     <SUITE FILE_PATH="coverage/project1$chessMain.coverage" NAME="chessMain Coverage Results" MODIFIED="1649432847909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chess" />
     <SUITE FILE_PATH="coverage/project1$board.coverage" NAME="board Coverage Results" MODIFIED="1649411299712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chess/CHESS" />
     <SUITE FILE_PATH="coverage/project1$pieces.coverage" NAME="pieces Coverage Results" MODIFIED="1649408742336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chess/CHESS" />
-    <SUITE FILE_PATH="coverage/project1$menushka.coverage" NAME="menushka Coverage Results" MODIFIED="1651090527564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/project1$menushka.coverage" NAME="GameMenu Coverage Results" MODIFIED="1651175269048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/project1$Board.coverage" NAME="Board Coverage Results" MODIFIED="1649307530862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/project1$Menu.coverage" NAME="Menu Coverage Results" MODIFIED="1651035448125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/project1$chessboard__1_.coverage" NAME="chessboard (1) Coverage Results" MODIFIED="1649493211983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/chess/CHESS" />
