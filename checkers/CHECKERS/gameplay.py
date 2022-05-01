@@ -1,5 +1,5 @@
 import pygame
-from .constants import RED, WHITE, SQUARE_SIZE, BLUE
+from .constants import RED, WHITE, SQUARE_SIZE, BLUE, GREY
 from .board import Board
 class Game:
     def __init__(self, win):
@@ -10,6 +10,7 @@ class Game:
         self.board.draw(self.win)
         self.draw_valid_moves(self.valid_moves)
         pygame.display.update()
+
     #private method
     def _init(self):
         self.selected = None
@@ -17,8 +18,13 @@ class Game:
         #print(self.board)
         self.turn = RED
         self.valid_moves = {}
+
     def winner(self):
         return self.board.winner()
+
+    def undo_move(self):
+        return self.board.get_all_pieces(self.turn)
+
     #reset the game
     def reset(self):
         self._init()
@@ -41,14 +47,16 @@ class Game:
             return True
 
         return False
-    #private method
+    # private method
     def _move(self, row, col):
         piece = self.board.get_piece(row, col)
         # если выбрали такой квадрат где нет другой шашки
         if self.selected and piece == 0 and (row, col) in self.valid_moves:
             # двигаем шашку в выбранный квадрат
             self.board.move(self.selected, row, col)
+            pygame.draw.circle(self.win, GREY, (col * SQUARE_SIZE + SQUARE_SIZE // 2, row * SQUARE_SIZE + SQUARE_SIZE // 2), SQUARE_SIZE * 2)
             skipped = self.valid_moves[(row, col)]
+
             if skipped:
                 self.board.remove(skipped)
             self.change_turn()

@@ -8,6 +8,7 @@ import time
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 server = "localhost"
+# server = ''
 port = 5555
 
 server_ip = socket.gethostbyname(server)
@@ -189,12 +190,16 @@ while True:
                 g = 0
                 games[g] = chessBoard(8, 8)
 
-        '''if addr[0] in spectartor_ids and specs == 0:
+        '''
+        
+        if addr[0] in spectartor_ids and specs == 0:
             spec = True
             print("[SPECTATOR DATA] Games to view: ")
             print("[SPECTATOR DATA]", games.keys())
             g = 0
-            specs += 1'''
+            specs += 1
+            
+        '''
 
         print("[DATA] Number of Connections:", connections + 1)
         print("[DATA] Number of Games:", len(games))

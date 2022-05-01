@@ -24,14 +24,16 @@ class Piece:
         self.king = True
     # рисуем шашки, в виде одного кружка внутри другого
     def draw(self, win):
+
         radius = SQUARE_SIZE//2 - self.PADDING
-        pygame.draw.circle(win, GREY, (self.x, self.y), radius + self.OUTLINE) #большой кпужок
-        pygame.draw.circle(win, self.color, (self.x, self.y), radius) #маленький куржой
+        pygame.draw.circle(win, GREY, (self.x, self.y), radius + self.OUTLINE) # большой кпужок
+        pygame.draw.circle(win, self.color, (self.x, self.y), radius) # маленький куржой
         if self.king and self.color == RED:
             # blit import image on display
             win.blit(RCROWN, (self.x - RCROWN.get_width()//2, self.y - RCROWN.get_height()//2))
         elif self.king and self.color == WHITE:
             win.blit(UCROWN, (self.x - UCROWN.get_width() // 2, self.y - UCROWN.get_height() // 2))
+
     def move(self, row, col):
         self.row = row
         self.col = col
