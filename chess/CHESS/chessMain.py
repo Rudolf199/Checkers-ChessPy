@@ -2,71 +2,60 @@
 """
 user input and display
 """
-from chess.CHESS.chessconstants import WIDTH, HEIGHT, WHITE, Board, rect, BLACK, GREY
+from chess.CHESS.chessconstants import WIDTH, HEIGHT, WHITE, Board, rect, BLACK, chessbg
 import pygame
-from chess.CHESS.chesspieces import chessPiece, Bishop
-from chess.CHESS.chessboard import chessBoard
+from chess.CHESS.chesspieces import ChessPiece, Bishop
+from chess.CHESS.chessboard import ChessBoard
 import time
-from chess.CHESS.client import Network
-import pickle
-import os
 
 
-chessbg = pygame.transform.scale(pygame.image.load(os.path.join("chess", "CHESS", "images", "chessbg.png")), (800, 800))
+print("Enter first name: ")
+name1 = str(input())
+print("Enter second name: ")
+name2 = str(input())
 
 pygame.font.init()
 turn = WHITE
 FPS = 10
+win = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Chess')
 
 
-def menu_screen(win, name):
-    global play, chessbg
+def menu_screen(win):
+    # global play
     run = True
-    offline = False
-
     while run:
         win.blit(chessbg, (0, 0))
-        small_font = pygame.font.SysFont("comicsans", 50)
-
-        if offline:
-            off = small_font.render("Server Offline, Try Again Later...", 1, (255, 0, 0))
-            win.blit(off, (WIDTH / 2 - off.get_width() / 2, 500))
-
+        font = pygame.font.SysFont("comicsans", 80)
+        title = font.render("Click to play Chess", True, (0, 128, 0))
+        win.blit(title, (WIDTH / 2 - title.get_width() / 2, 200))
         pygame.display.update()
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 run = False
-
             if event.type == pygame.MOUSEBUTTONDOWN:
-                offline = False
-                try:
-                    play = connect()
-                    run = False
-                    chessgame()
-                    break
-                except:
-                    print("Server Offline")
-                    offline = True
+                run = False
+    chessgame()
 
-'''
-def redraw_gameWindow(win, play, p1, p2, color): # fix this with screenshot
+def redraw_gamewindow(win, play, p1, p2, color):  # fix this with screenshot
 
     win.blit(Board, (0, 0))
     play.draw(win, color)
-    formatTime1 = str(int(p1//60)) + ":" + str(int(p1%60))
-    formatTime2 = str(int(p2//60)) + ":" + str(int(p2%60))
-    if int(p1%60) < 10:
+    formatTime1 = str(int(p1//60)) + ":" + str(int(p1 % 60))
+    formatTime2 = str(int(p2//60)) + ":" + str(int(p2 % 60))
+    if int(p1 % 60) < 10:
         formatTime1 = formatTime1[:-1] + "0" + formatTime1[-1]
-    if int(p2%60) < 10:
+    if int(p2 % 60) < 10:
         formatTime2 = formatTime2[:-1] + "0" + formatTime2[-1]
     font = pygame.font.SysFont("comicsans", 30)
-    txt = font.render(play.p1Name + "\'s Time: " + str(formatTime2), 1, WHITE)
-    txt2 = font.render(play.p2Name + "\'s Time: " + str(formatTime1), 1, WHITE)
+    txt = font.render(play.p1Name + "\'s Time: " + str(formatTime2), True, WHITE)
+    txt2 = font.render(play.p2Name + "\'s Time: " + str(formatTime1), True, WHITE)
     win.blit(txt, (520, 10))
     win.blit(txt2, (520, 700))
     pygame.display.update()
+
+
 '''
 def redraw_gameWindow(win, bo, p1, p2, color, ready):
     win.blit(Board, (0, 0))
@@ -120,6 +109,7 @@ def redraw_gameWindow(win, bo, p1, p2, color, ready):
             win.blit(txt3, (WIDTH / 2 - txt3.get_width() / 2, 700))
 
     pygame.display.update()
+'''
 
 
 def end_screen(win, text):
@@ -155,118 +145,72 @@ def click(pos):
             divY = y - rect[1]
             i = int(divX / (rect[2]/8))
             j = int(divY / (rect[3]/8))
-            #print(i, j)
+            # print(i, j)
             return i, j
 
     return -1, -1
 
+
+'''
 def connect():
     global n
     n = Network()
     return n.board
+'''
+
 
 def chessgame():
-    global play, turn, name, p1Time, p2Time
-
-    color = play.start_user
+    global play
+    p1Time = 900
+    p2Time = 900
+    # color = WHITE
+    turn = WHITE
     count = 0
-
-    play = n.send("update_moves")
-    play = n.send("name " + name)
-    # p1Time = 900
-    # p2Time = 900
-    # turn = WHITE
-    # count = 0
-    # play = chessBoard(8, 8)
-    # play.update_moves()
+    play = ChessBoard(8, 8, name1, name2)
+    play.update_moves()
     clock = pygame.time.Clock()
     run = True
-    # startTime = time.time()
+    startTime = time.time()
     while run:
-        if not color == "s":
-            p1Time = play.time1
-            p2Time = play.time2
-            if count == 60:
-                play = n.send("get")
-                count = 0
-            else:
-                count += 1
         clock.tick(30)
-
-        try:
-            redraw_gameWindow(win, play, p1Time, p2Time,  color, play.ready)
-        except Exception as e:
-            print(e)
-            end_screen(win, "Other player left")
-            run = False
-            break
-
-        if not color == "s":
+        color = turn
+        if turn == WHITE:
+            p1Time -= (time.time() - startTime)
             if p1Time <= 0:
-                play = n.send("winner b")
-            elif p2Time <= 0:
-                play = n.send("winner w")
-            if play.check_mate(BLACK):
-                play = n.send("winner b")
-            elif play.check_mate(WHITE):
-                play = n.send("winner w")
-
-        if play.winner == WHITE:
-            end_screen(win, "White is the winner!")
-            run = False
-        elif play.winner == BLACK:
-            end_screen(win, "Black is the winner!")
-            run = False
-
+                end_screen(win, "Black Won!!")
+        else:
+            p2Time -= (time.time() - startTime)
+            if p2Time <= 0:
+                end_screen(win, "White Won!!")
+        startTime = time.time()
+        redraw_gamewindow(win, play, int(p1Time), int(p2Time), color)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
                 quit()
                 pygame.quit()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_q and color != "s":
-                    if color == WHITE:
-                        play = n.send("winner b")
-                    else:
-                        play = n.send("winner w")
-                if event.key == pygame.K_RIGHT:
-                    play = n.send("forward")
-
-                if event.key == pygame.K_LEFT:
-                    play = n.send("back")
-
-            if event.type == pygame.MOUSEBUTTONDOWN and color != "s":
-                if color == play.turn and play.ready:
-
+            # if event.type == pygame.KEYDOWN:
+            #    if event.key == pygame.K_q: # q pressed
+            #        quit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 # if color == turn:
-                    pos = pygame.mouse.get_pos()
-                    play = n.send("update moves")
-                    i, j = click(pos)
-                    # change = play.select(i, j, turn)
-                    play = n.send("select" + str(i) + " " + str(j) + " " + color)
-                '''
-                if change == True:
+                pos = pygame.mouse.get_pos()
+                play.update_moves()
+                i, j = click(pos)
+                change = play.select(i, j, turn)
+                play.update_moves()
+                    # change = play.select(i, j, play.turn)
+                if change is True:
                     startTime = time.time()
                     count += 1
                     if turn == WHITE:
                         turn = BLACK
-                        #turn = BLACK
                         play.reset_selected()
                     else:
-                        turn  = WHITE #play.turn
-                        #turn = WHITE
+                        turn = WHITE  # play.turn
+                        # turn = WHITE
                         play.reset_selected()
-                '''
-        n.disconnect()
-        play = 0
-        menu_screen(win, name)
+    menu_screen(win)
 
 
-name = input("Please type your nickname: ")
-win = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption('Chess')
-menu_screen(win, name)
-
-
-
-
+menu_screen(win)

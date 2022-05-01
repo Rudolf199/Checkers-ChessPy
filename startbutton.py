@@ -1,5 +1,6 @@
 import pygame
 
+
 class StartButton:
     def __init__(self, picture, x, y, radius, color1, color2, deltax, deltay, dinamic):
         # initialization with their picture, coordinates, color, and the dinamic coordinates for moving ,
@@ -40,10 +41,3 @@ class StartButton:
                     self.pressed = False
         else:
             self.color = self.color1
-
-
-
-'''
-def chess():
-    print("chess")
-'''

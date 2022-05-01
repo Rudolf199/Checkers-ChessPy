@@ -1,6 +1,6 @@
 ---------
 
-![Python.png](♚🙾Python.png)
+![Python.png](common imgs/♚🙾Python.png)
 
 
 -----------
@@ -87,4 +87,4 @@ and choose which game you want
 
 📱 Let me know if you are having problems
 
-![img_2.png](img_2.png) [here](https://t.me/Roudolf)
+![img_2.png](common imgs/img_2.png) [here](https://t.me/Roudolf)

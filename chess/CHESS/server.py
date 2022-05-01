@@ -1,6 +1,6 @@
 import socket
 from _thread import *
-from chess.CHESS.chessboard import chessBoard
+from chess.CHESS.chessboard import ChessBoard
 from chess.CHESS.chessconstants import WHITE, BLACK
 import pickle
 import time
@@ -24,7 +24,7 @@ print("[START] Waiting for a connection")
 
 connections = 0
 
-games = {0: chessBoard(8, 8)}
+games = {0: ChessBoard(8, 8)}
 
 spectartor_ids = []
 specs = 0
@@ -179,19 +179,18 @@ while True:
         print("[CONNECT] New connection")
 
         for game in games.keys():
-            if games[game].ready == False:
+            if games[game].ready is False:
                 g = game
 
         if g == -1:
             try:
                 g = list(games.keys())[-1] + 1
-                games[g] = chessBoard(8, 8)
+                games[g] = ChessBoard(8, 8)
             except:
                 g = 0
-                games[g] = chessBoard(8, 8)
+                games[g] = ChessBoard(8, 8)
 
         '''
-        
         if addr[0] in spectartor_ids and specs == 0:
             spec = True
             print("[SPECTATOR DATA] Games to view: ")
