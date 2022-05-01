@@ -59,6 +59,9 @@ class ChessPiece:
     def __str__(self):
         return str(self.col) + " " + str(self.row)
 
+    def valid_moves(self, board):
+        pass
+
 
 class Bishop(ChessPiece):
     img = 0

@@ -79,6 +79,12 @@ def checkersgame():
             Usound.play()
             end_screen(WIN, "White won")
             # run = False
+        elif game.turn == WHITE and game.board.winner_red() is True:
+            Rsound.play()
+            end_screen(WIN, "Red won")
+        elif game.turn == RED and game.board.winner_white() is True:
+            Usound.play()
+            end_screen(WIN, "White won")
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False

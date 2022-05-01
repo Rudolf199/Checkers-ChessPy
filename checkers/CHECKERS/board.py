@@ -82,12 +82,28 @@ class Board:
                 else:
                     self.white_left -= 1
 
+    def get_moves(self, color):
+        valids = []
+        for piece in self.get_all_pieces(color):
+             valids.append(self.get_valid_moves(piece))
+        return valids
+
     def winner(self):
         if self.red_left <= 0:
             return WHITE
         elif self.white_left <= 0:
             return RED
         return None
+
+    def winner_red(self):
+        if len(self.get_moves(WHITE)) == 0:
+            return True
+        return False
+
+    def winner_white(self):
+        if len(self.get_moves(RED)) == 0:
+            return True
+        return False
 
     def get_valid_moves(self, piece):
         moves = {}

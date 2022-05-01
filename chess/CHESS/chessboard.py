@@ -12,15 +12,11 @@ class ChessBoard:
     def __init__(self, rows, cols, name1, name2):
         self.rows = rows
         self.cols = cols
-
         # self.ready = False
-
         self.last = None
-
         # self.copy = True
         # self.board = [[]]
         self.board = [[0 for _ in range(8)] for _ in range(rows)]
-
         self.board[0][0] = Rook(0, 0, BLACK)
         self.board[0][1] = Knight(0, 1, BLACK)
         self.board[0][2] = Bishop(0, 2, BLACK)
@@ -67,6 +63,7 @@ class ChessBoard:
         self.startTime = time.time()
 
     def update_moves(self):
+        # print(self.board)
         for i in range(self.rows):
             for j in range(self.cols):
                 if self.board[i][j] != 0:
@@ -124,27 +121,15 @@ class ChessBoard:
                 if self.board[i][j] != 0:
                     if self.board[i][j].king and self.board[i][j].color == color:
                         king_pos = (j, i)
-
         if king_pos in danger_moves:
+            print("check")
             return True
         return False
 
     def check_mate(self, color):
         if self.is_checked(color):
-            king = None
-            for i in range(self.rows):
-                for j in range(self.cols):
-                    if self.board[i][j] != 0:
-                        if self.board[i][j].king and self.board[i][j].color == color:
-                            king = self.board[i][j]
-            if king is not None:
-                valid_moves = king.valid_moves(self.board)
-                danger_moves = self.get_danger_moves(color)
-                danger_count = 0
-                for move in valid_moves:
-                    if move in danger_moves:
-                        danger_count += 1
-                return danger_count == len(valid_moves)
+            if len(self.get_danger_moves(color)) > 3:
+                return True
         return False
 
     def reset_selected(self):
@@ -171,7 +156,6 @@ class ChessBoard:
                 changed = True
             self.reset_selected()
         else:
-
             if self.board[prev[0]][prev[1]].color != self.board[row][col].color:
                 moves = self.board[prev[0]][prev[1]].move_list
                 if (col, row) in moves:

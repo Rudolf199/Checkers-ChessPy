@@ -8,7 +8,6 @@ from chess.CHESS.chesspieces import ChessPiece, Bishop
 from chess.CHESS.chessboard import ChessBoard
 import time
 
-
 print("Enter first name: ")
 name1 = str(input())
 print("Enter second name: ")
@@ -38,12 +37,13 @@ def menu_screen(win):
                 run = False
     chessgame()
 
+
 def redraw_gamewindow(win, play, p1, p2, color):  # fix this with screenshot
 
     win.blit(Board, (0, 0))
     play.draw(win, color)
-    formatTime1 = str(int(p1//60)) + ":" + str(int(p1 % 60))
-    formatTime2 = str(int(p2//60)) + ":" + str(int(p2 % 60))
+    formatTime1 = str(int(p1 // 60)) + ":" + str(int(p1 % 60))
+    formatTime2 = str(int(p2 // 60)) + ":" + str(int(p2 % 60))
     if int(p1 % 60) < 10:
         formatTime1 = formatTime1[:-1] + "0" + formatTime1[-1]
     if int(p2 % 60) < 10:
@@ -143,8 +143,8 @@ def click(pos):
         if rect[1] < y < rect[1] + rect[3]:
             divX = x - rect[0]
             divY = y - rect[1]
-            i = int(divX / (rect[2]/8))
-            j = int(divY / (rect[3]/8))
+            i = int(divX / (rect[2] / 8))
+            j = int(divY / (rect[3] / 8))
             # print(i, j)
             return i, j
 
@@ -163,7 +163,6 @@ def chessgame():
     global play
     p1Time = 900
     p2Time = 900
-    # color = WHITE
     turn = WHITE
     count = 0
     play = ChessBoard(8, 8, name1, name2)
@@ -189,9 +188,6 @@ def chessgame():
                 run = False
                 quit()
                 pygame.quit()
-            # if event.type == pygame.KEYDOWN:
-            #    if event.key == pygame.K_q: # q pressed
-            #        quit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # if color == turn:
                 pos = pygame.mouse.get_pos()
@@ -199,17 +195,27 @@ def chessgame():
                 i, j = click(pos)
                 change = play.select(i, j, turn)
                 play.update_moves()
-                    # change = play.select(i, j, play.turn)
+                # change = play.select(i, j, play.turn)
                 if change is True:
                     startTime = time.time()
                     count += 1
-                    if turn == WHITE:
+                    if turn == WHITE and not play.is_checked(turn):
                         turn = BLACK
                         play.reset_selected()
-                    else:
+                    elif turn == WHITE and play.is_checked(turn):
                         turn = WHITE  # play.turn
                         # turn = WHITE
                         play.reset_selected()
+                    elif turn == BLACK and not play.is_checked(turn):
+                        turn = WHITE
+                        play.reset_selected()
+                    elif turn == BLACK and play.is_checked(turn):
+                        turn = BLACK
+                        play.reset_selected()
+                    elif turn == WHITE and play.is_checked(turn) and play.check_mate(turn):
+                        end_screen(win, "Black Won!!")
+                    elif turn == BLACK and play.is_checked(turn) and play.check_mate(turn):
+                        end_screen(win, "White Won!!")
     menu_screen(win)
 
 
