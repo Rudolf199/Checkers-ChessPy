@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0395436a-5b2c-493f-b215-806f5eb2d7d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/READ.md" beforeDir="false" afterPath="$PROJECT_DIR$/READ.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkers/CHECKERS/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/CHECKERS/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkers/CHECKERS/gameplay.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/CHECKERS/gameplay.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkers/CHECKERS/pieces.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/CHECKERS/pieces.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkers/checkers.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/checkers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess/CHESS/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess/CHESS/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkers/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkers/UML diagram.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +192,7 @@
       <workItem from="1651249988416" duration="1809000" />
       <workItem from="1651313687384" duration="2426000" />
       <workItem from="1651387069900" duration="5851000" />
-      <workItem from="1651406263123" duration="726000" />
+      <workItem from="1651406263123" duration="1068000" />
     </task>
     <servers />
   </component>
