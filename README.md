@@ -1,9 +1,13 @@
----------
-
-![Python.png](common imgs/♚🙾Python.png)
-
 
 -----------
+![Python.png](common%20imgs/♚🙾Python.png)
+
+
+---------
+
+
+
+
 
 💬 Welcome to my first game project
 ===
@@ -87,4 +91,4 @@ and choose which game you want
 
 📱 Let me know if you are having problems
 
-![img_2.png](common imgs/img_2.png) [here](https://t.me/Roudolf)
+![img_2.png](common%20imgs/img_2.png) [here](https://t.me/Roudolf)
