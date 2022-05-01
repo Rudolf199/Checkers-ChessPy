@@ -5,12 +5,11 @@ from chess.CHESS.chessconstants import WHITE, BLACK
 import pickle
 import time
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server = "localhost"
 # server = ''
 port = 5555
-
 server_ip = socket.gethostbyname(server)
 
 try:
@@ -32,7 +31,6 @@ specs = 0
 
 def read_specs():
     global spectartor_ids
-
     spectartor_ids = []
     try:
         with open("specs.txt", "r") as f:
@@ -196,10 +194,8 @@ while True:
             print("[SPECTATOR DATA] Games to view: ")
             print("[SPECTATOR DATA]", games.keys())
             g = 0
-            specs += 1
-            
+            specs += 1 
         '''
-
         print("[DATA] Number of Connections:", connections + 1)
         print("[DATA] Number of Games:", len(games))
 
