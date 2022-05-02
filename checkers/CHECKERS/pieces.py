@@ -12,7 +12,7 @@ class Piece:
         self.color = color
         self.king = False
         self.calc_pos()
-         
+
     # так как центр шашки совпадает с центром квадрата, надо найти центр квадрата, это и будет координатами шашки
     def calc_pos(self):
         self.x = SQUARE_SIZE * self.col + SQUARE_SIZE // 2
@@ -36,3 +36,4 @@ class Piece:
         self.row = row
         self.col = col
         self.calc_pos()
+

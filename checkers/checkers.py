@@ -14,9 +14,9 @@ WIN = pygame.display.set_mode((WIDTH, HEIGHT))  # display
 pygame.display.set_caption('Checkers')
 checkersbg = pygame.transform.scale(pygame.image.load(os.path.join("checkers", "CHECKERS", "checkersbg.png")),
                                     (WIDTH, HEIGHT))
-
-
 # чтобы двигать шашками мышкой
+
+
 def get_row_col_from_mouse(pos):
     x, y = pos
     row = y // SQUARE_SIZE

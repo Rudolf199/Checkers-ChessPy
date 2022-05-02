@@ -2,7 +2,10 @@ import pygame
 from .constants import BLACK, COLS, ROWS, RED, SQUARE_SIZE, WHITE
 from .pieces import Piece
 
+
 amount = 12
+
+
 class Board:
 
     def __init__(self):
@@ -104,7 +107,7 @@ class Board:
         if len(self.get_moves(RED)) == 0:
             return True
         return False
-
+    
     def get_valid_moves(self, piece):
         moves = {}
         left = piece.col - 1
@@ -176,3 +179,4 @@ class Board:
                 last = [current]  # цикл повторяется
             right += 1
         return moves
+
