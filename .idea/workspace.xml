@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0395436a-5b2c-493f-b215-806f5eb2d7d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkers/CHECKERS/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/CHECKERS/board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkers/checkers.py" beforeDir="false" afterPath="$PROJECT_DIR$/checkers/checkers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess/CHESS/chessMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess/CHESS/chessMain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess/CHESS/chessboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess/CHESS/chessboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess/CHESS/chessconstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess/CHESS/chessconstants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chess/CHESS/chesspieces.py" beforeDir="false" afterPath="$PROJECT_DIR$/chess/CHESS/chesspieces.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../python-code-review" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../python-code-review-2" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -200,6 +194,7 @@
       <workItem from="1651387069900" duration="5851000" />
       <workItem from="1651406263123" duration="8367000" />
       <workItem from="1651416563293" duration="10736000" />
+      <workItem from="1651433737347" duration="1158000" />
     </task>
     <servers />
   </component>
