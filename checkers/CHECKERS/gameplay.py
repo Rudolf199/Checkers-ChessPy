@@ -1,6 +1,10 @@
 import pygame
-from .constants import RED, WHITE, SQUARE_SIZE, BLUE
+from .constants import RED, WHITE, SQUARE_SIZE, BLUE, GREY
 from .board import Board
+
+padding = 15
+
+
 class Game:
     def __init__(self, win):
         self._init()
@@ -10,16 +14,22 @@ class Game:
         self.board.draw(self.win)
         self.draw_valid_moves(self.valid_moves)
         pygame.display.update()
-    #private method
+
+    # private method
     def _init(self):
         self.selected = None
         self.board = Board()
-        #print(self.board)
+        # print(self.board)
         self.turn = RED
         self.valid_moves = {}
+
     def winner(self):
         return self.board.winner()
-    #reset the game
+
+    def undo_move(self):
+        return self.board.get_all_pieces(self.turn)
+
+    # reset the game
     def reset(self):
         self._init()
 
@@ -39,16 +49,19 @@ class Game:
             self.selected = piece
             self.valid_moves = self.board.get_valid_moves(piece)
             return True
-
         return False
-    #private method
+
+    # private method
     def _move(self, row, col):
         piece = self.board.get_piece(row, col)
         # если выбрали такой квадрат где нет другой шашки
         if self.selected and piece == 0 and (row, col) in self.valid_moves:
             # двигаем шашку в выбранный квадрат
             self.board.move(self.selected, row, col)
+            pygame.draw.circle(self.win, GREY, (col * SQUARE_SIZE + SQUARE_SIZE // 2,
+                                                row * SQUARE_SIZE + SQUARE_SIZE // 2), SQUARE_SIZE * 2)
             skipped = self.valid_moves[(row, col)]
+
             if skipped:
                 self.board.remove(skipped)
             self.change_turn()
@@ -60,14 +73,13 @@ class Game:
     def draw_valid_moves(self, moves):
         for move in moves:
             row, col = move
-            pygame.draw.circle(self.win, BLUE, (col * SQUARE_SIZE + SQUARE_SIZE//2, row * SQUARE_SIZE + SQUARE_SIZE//2), 15)
-
-
+            pygame.draw.circle(self.win, BLUE, (col * SQUARE_SIZE + SQUARE_SIZE//2,
+                                                row * SQUARE_SIZE + SQUARE_SIZE//2), padding)
 
     def change_turn(self):
         self.valid_moves = {}
         if self.turn == WHITE:
-            self.turn =  RED
+            self.turn = RED
         else:
             self.turn = WHITE
 
@@ -77,4 +89,3 @@ class Game:
     def ai_move(self, board):
         self.board = board
         self.change_turn()
-
