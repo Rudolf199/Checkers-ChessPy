@@ -8,10 +8,12 @@ pygame.init()
 
 
 FPS = 60
+size = 300
+fsize = 80
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))  # display
 pygame.display.set_caption('Checkers')
 checkersbg = pygame.transform.scale(pygame.image.load(os.path.join("checkers", "CHECKERS", "checkersbg.png")),
-                                    (800, 800))
+                                    (WIDTH, HEIGHT))
 
 
 # чтобы двигать шашками мышкой
@@ -27,9 +29,9 @@ def menu_screen(win):
     run = True
     while run:
         win.blit(checkersbg, (0, 0))
-        font = pygame.font.SysFont("comicsans", 80)
+        font = pygame.font.SysFont("comicsans", fsize)
         title = font.render("Click to play Checkers", True, WHITE)
-        win.blit(title, (WIDTH / 2 - title.get_width() / 2, 200))
+        win.blit(title, (WIDTH / 2 - title.get_width() / 2, size))
         pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -43,9 +45,9 @@ def menu_screen(win):
 
 def end_screen(win, text):
     pygame.font.init()
-    font = pygame.font.SysFont("comicsans", 80)
+    font = pygame.font.SysFont("comicsans", fsize)
     txt = font.render(text, True, WHITE)
-    win.blit(txt, (WIDTH / 2 - txt.get_width() / 2, 300))
+    win.blit(txt, (WIDTH / 2 - txt.get_width() / 2, size))
     pygame.display.update()
     run = True
 

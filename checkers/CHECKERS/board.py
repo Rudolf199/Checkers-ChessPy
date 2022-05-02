@@ -2,13 +2,13 @@ import pygame
 from .constants import BLACK, COLS, ROWS, RED, SQUARE_SIZE, WHITE
 from .pieces import Piece
 
-
+amount = 12
 class Board:
 
     def __init__(self):
         # атрибуты
         self.board = []  # список шашек
-        self.red_left = self.white_left = 12   # сколько шашек каждого цвета осталось, в начале их по 12
+        self.red_left = self.white_left = amount   # сколько шашек каждого цвета осталось, в начале их по 12
         self.red_kings = self.white_kings = 0  # количество дамок в начале 0
         self.create_board()  # создаем доску
 

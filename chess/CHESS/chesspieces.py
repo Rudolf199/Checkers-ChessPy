@@ -1,6 +1,7 @@
 import pygame
-from chess.CHESS.chessconstants import W, B, WHITE, BLACK
+from chess.CHESS.chessconstants import W, B, WHITE, BLACK, RED
 
+padding = 10
 
 class ChessPiece:
     img = -1
@@ -36,12 +37,12 @@ class ChessPiece:
         x = (4 - self.col) + round(self.startX + (self.col * self.rect[2] / 8))
         y = 3 + round(self.startY + (self.row * self.rect[3] / 8))
         if self.selected and self.color == color:
-            pygame.draw.rect(win, (255, 0, 0), (x, y, 62, 62), 3)
+            pygame.draw.rect(win, RED, (x, y, 62, 62), 3)
             moves = self.move_list
             for move in moves:
                 X = 33 + round(self.startX + (move[0] * self.rect[2] / 8))
                 Y = 33 + round(self.startY + (move[1] * self.rect[3] / 8))
-                pygame.draw.circle(win, (255, 0, 0), (X, Y), 10)
+                pygame.draw.circle(win, RED, (X, Y), padding)
         win.blit(drawThis, (x, y))
         '''
         if self.selected and self.color == color: #Remove false to draw dots

@@ -2,6 +2,8 @@ import pygame
 from .constants import RED, WHITE, SQUARE_SIZE, BLUE, GREY
 from .board import Board
 
+padding = 15
+
 
 class Game:
     def __init__(self, win):
@@ -72,7 +74,7 @@ class Game:
         for move in moves:
             row, col = move
             pygame.draw.circle(self.win, BLUE, (col * SQUARE_SIZE + SQUARE_SIZE//2,
-                                                row * SQUARE_SIZE + SQUARE_SIZE//2), 15)
+                                                row * SQUARE_SIZE + SQUARE_SIZE//2), padding)
 
     def change_turn(self):
         self.valid_moves = {}

@@ -2,7 +2,8 @@
 """
 user input and display
 """
-from chess.CHESS.chessconstants import WIDTH, HEIGHT, WHITE, Board, rect, BLACK, chessbg
+from chess.CHESS.chessconstants import WIDTH, HEIGHT, WHITE, Board, rect, BLACK, chessbg, RED, all_time, TIME
+from chess.CHESS.chessconstants import text_y1, text_x, text_y2, minute, minute2, size, title_size, menu_size
 import pygame
 from chess.CHESS.chesspieces import ChessPiece, Bishop
 from chess.CHESS.chessboard import ChessBoard
@@ -25,9 +26,9 @@ def menu_screen(win):
     run = True
     while run:
         win.blit(chessbg, (0, 0))
-        font = pygame.font.SysFont("comicsans", 80)
-        title = font.render("Click to play Chess", True, (0, 128, 0))
-        win.blit(title, (WIDTH / 2 - title.get_width() / 2, 200))
+        font = pygame.font.SysFont("comicsans", menu_size)
+        title = font.render("Click to play Chess", True, WHITE)
+        win.blit(title, (WIDTH / 2 - title.get_width() / 2, title_size))
         pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -42,17 +43,17 @@ def redraw_gamewindow(win, play, p1, p2, color):  # fix this with screenshot
 
     win.blit(Board, (0, 0))
     play.draw(win, color)
-    formatTime1 = str(int(p1 // 60)) + ":" + str(int(p1 % 60))
-    formatTime2 = str(int(p2 // 60)) + ":" + str(int(p2 % 60))
-    if int(p1 % 60) < 10:
+    formatTime1 = str(int(p1 // minute)) + ":" + str(int(p1 % minute))
+    formatTime2 = str(int(p2 // minute)) + ":" + str(int(p2 % minute))
+    if int(p1 % minute) < minute2:
         formatTime1 = formatTime1[:-1] + "0" + formatTime1[-1]
-    if int(p2 % 60) < 10:
+    if int(p2 % minute) < minute2:
         formatTime2 = formatTime2[:-1] + "0" + formatTime2[-1]
-    font = pygame.font.SysFont("comicsans", 30)
+    font = pygame.font.SysFont("comicsans", size)
     txt = font.render(play.p1Name + "\'s Time: " + str(formatTime2), True, WHITE)
     txt2 = font.render(play.p2Name + "\'s Time: " + str(formatTime1), True, WHITE)
-    win.blit(txt, (520, 10))
-    win.blit(txt2, (520, 700))
+    win.blit(txt, (text_x, text_y1))
+    win.blit(txt2, (text_x, text_y2))
     pygame.display.update()
 
 
@@ -114,13 +115,12 @@ def redraw_gameWindow(win, bo, p1, p2, color, ready):
 
 def end_screen(win, text):
     pygame.font.init()
-    font = pygame.font.SysFont("comicsans", 80)
-    txt = font.render(text, 1, (255, 0, 0))
-    win.blit(txt, (WIDTH / 2 - txt.get_width() / 2, 300))
+    font = pygame.font.SysFont("comicsans", menu_size)
+    txt = font.render(text, True, RED)
+    win.blit(txt, (WIDTH / 2 - txt.get_width() / 2, 2 * title_size))
     pygame.display.update()
 
-    pygame.time.set_timer(pygame.USEREVENT + 1, 3000)
-
+    pygame.time.set_timer(pygame.USEREVENT + 1, all_time)
     run = True
 
     while run:
@@ -161,8 +161,8 @@ def connect():
 
 def chessgame():
     global play
-    p1Time = 900
-    p2Time = 900
+    p1Time = TIME
+    p2Time = TIME
     turn = WHITE
     count = 0
     play = ChessBoard(8, 8, name1, name2)
@@ -171,7 +171,7 @@ def chessgame():
     run = True
     startTime = time.time()
     while run:
-        clock.tick(30)
+        clock.tick(size)
         color = turn
         if turn == WHITE:
             p1Time -= (time.time() - startTime)

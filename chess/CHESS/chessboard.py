@@ -1,6 +1,6 @@
 import pygame
 from chess.CHESS.chesspieces import Bishop, King, Rook, Pawn, Queen, Knight, ChessPiece
-from chess.CHESS.chessconstants import BLACK, WHITE
+from chess.CHESS.chessconstants import BLACK, WHITE, BLUE, TIME
 import time
 
 
@@ -55,8 +55,8 @@ class ChessBoard:
         self.p1Name = name1
         self.p2Name = name2
         self.turn = WHITE
-        self.time1 = 900
-        self.time2 = 900
+        self.time1 = TIME
+        self.time2 = TIME
         self.storedTime1 = 0
         self.storedTime2 = 0
         self.winner = None
@@ -76,10 +76,10 @@ class ChessBoard:
 
             xx = (4 - x) + round(self.startX + (x * self.rect[2] / 8))
             yy = 3 + round(self.startY + (y * self.rect[3] / 8))
-            pygame.draw.circle(win, (0, 0, 255), (xx + 32, yy + 30), 34, 4)
+            pygame.draw.circle(win, BLUE, (xx + 32, yy + 30), 34, 4)
             xx1 = (4 - x) + round(self.startX + (x1 * self.rect[2] / 8))
             yy1 = 3 + round(self.startY + (y1 * self.rect[3] / 8))
-            pygame.draw.circle(win, (0, 0, 255), (xx1 + 20, yy1 + 20), 34, 4)
+            pygame.draw.circle(win, BLUE, (xx1 + 20, yy1 + 20), 34, 4)
 
         # s = None
         for i in range(self.rows):
@@ -109,7 +109,6 @@ class ChessBoard:
                     if self.board[i][j].color != color:
                         for move in self.board[i][j].move_list:
                             danger_moves.append(move)
-
         return danger_moves
 
     def is_checked(self, color):
